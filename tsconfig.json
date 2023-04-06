@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+		"outDir": "./lib",
+    "types": ["node"]
+
+	},
+	"include": ["./src", "./scripts"]
+}
