@@ -5,7 +5,11 @@ import blogStyles from '../../styles/blogStyles';
 import { Image, ScrollView } from 'react-native';
 
 const Blogs = (props: any) => {
-    const { userList } = useContext(APIContext);
+    const { userBlogList, fetchBlogDetails } = useContext(APIContext);
+      useEffect(() => {
+        fetchBlogDetails();
+      }, []);
+
     return (
         <ScrollView
             style={blogStyles.container}
@@ -13,7 +17,7 @@ const Blogs = (props: any) => {
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}>
             <List>
-                {userList.map((item: any, index: number) => (
+                {userBlogList.map((item: any, index: number) => (
                     <>
                         <List.Item
                             extra={
