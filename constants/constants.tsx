@@ -1,3 +1,4 @@
+/* added constant string for button, text */
 export default {
     edit: 'Edit',
     submit: 'Submit',
@@ -9,4 +10,13 @@ export default {
     body: 'This screen is just to unit testing demo',
     all: 'All',
     overview: 'OverView',
+    calender: 'Calender',
+    scheduleActions: 'Schedule Actions',
+    liveAlerts: 'LiveAlerts',
+    latest: 'Latest',
+    archived: 'Archieved',
+    dashBoardHeaderTitle: 'Dashboards',
+    blogsHeaderTitle: 'Blogs',
+    serverdownError: 'Server down. Please try after some time',
+    noData: 'No Data Available',
 }
