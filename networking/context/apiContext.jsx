@@ -1,13 +1,14 @@
 
 import React, { createContext, useState, useEffect } from "react";
 import https from '../https';
+import { Alert } from 'react-native';
+
 const APIContext = createContext();
 
 export const APIProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState([]);
   const [userList, setUserList] = useState([]);
   const [userBlogList, setUserBlogList] = useState([]);
-
 
   useEffect(() => {
     fetchDashboard();
@@ -41,6 +42,14 @@ export const APIProvider = ({ children }) => {
       .catch(error => {
         console.log(error);
       });
+    // const userListApiUrl = https.get(`users/1/posts`)
+    //   .then(response => {
+    //     setUserList(response.data);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+
     Promise.all([userApiUrl]).then(function (response) {
       return response
     }).catch(function (err) {
