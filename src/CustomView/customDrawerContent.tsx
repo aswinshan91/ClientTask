@@ -1,4 +1,4 @@
-import React, { useContext, Dispatch, SetStateAction } from 'react';
+import React, { useContext } from 'react';
 import {
   Text,
   Image,
@@ -41,7 +41,5 @@ function CustomDrawerContent(props : any) {
     </ScrollView>
   );
 }
-
-
 
 export default CustomDrawerContent;

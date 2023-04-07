@@ -1,54 +1,89 @@
-import React, { useContext } from "react";
+/* DashBoard Screen */
+
+import React, { useContext, useEffect } from "react";
 import APIContext from "../../networking/context/apiContext";
-import { List, Button } from '@ant-design/react-native'
 import dashBoardStyles from '../../styles/dashboardStyles';
-import { Image, ScrollView } from 'react-native'
+import { Image, View, SafeAreaView, FlatList, TouchableOpacity, Text } from 'react-native'
 import constant from '../../constants/constants';
+
+/* Cretae a interface for ItemData with data type */
+
+type ItemData = {
+    id: string;
+    userId: string;
+    title: string;
+    body: string;
+};
+
+/* Create a Props for item to declare action in onPress */
+
+type ItemProps = {
+    item: ItemData;
+    onPress: () => void;
+};
+
+/* Created Render Item for list item */
+
+const Item = ({ item, onPress }: ItemProps) => (
+    <TouchableOpacity onPress={onPress}>
+        <View style={dashBoardStyles.innerContainer}>
+            <View style={dashBoardStyles.innerView}>
+            <Image
+            style={dashBoardStyles.thumbnail}
+            source={require('../../images/meeting.jpg')}
+        />
+            </View>
+            <View style={dashBoardStyles.content}>
+              <Text style={[dashBoardStyles.title]}>{item.title}</Text>
+              <Text style={[dashBoardStyles.bodyContent]}>{item.body}</Text>
+              <Text style={[dashBoardStyles.readMore]}>{constant.readMore}</Text>
+            </View>
+        </View>
+    </TouchableOpacity>
+);
+
+/* create DashBoard screen with props */
 
 const Dashboard = (props : any) => {
     const { userList, fetchDashboardList } = useContext(APIContext);
 
+  /* call restful api in useeffect yo show the DashBoard list */
+
     useEffect(() => {
         fetchDashboardList();
       }, []);
-    
-    const navigatetoDashBoardDetail = (index : any) => {
+
+/* Navigation to DashBoard Details with Params */
+
+    const navigatetoDashBoardDetail = (item : any) => {
         props.navigation.navigate('DashBoardDetails', {
-            body: userList[index].body,
-            userId: userList[index].userId,
-            id: userList[index].userId,
-            title: userList[index].title,
+            body: item.body,
+            userId: item.userId,
+            id: item.userId,
+            title: item.title,
         });
     }
+
+ /*create a render method for flatlist */
+    const renderItem = ({item}: { item: any}) => {
+        return (
+          <Item
+            item={item}
+            onPress={() => navigatetoDashBoardDetail(item)}
+          />
+        );
+      };
+
+/* create a flat list to show the list of item with safearea */
+
     return (
-        <ScrollView
-            style={dashBoardStyles.container}
-            automaticallyAdjustContentInsets={false}
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}>
-            <List>
-                {userList.map((item: any, index: number) => (
-                    <>
-                        <List.Item
-                            extra={
-                                <Image
-                                    source={{
-                                        uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-                                    }}
-                                    style={dashBoardStyles.thumbnail}
-                                />
-                            }>
-                            <List.Item.Brief style={dashBoardStyles.title}>{item.title}</List.Item.Brief>
-                            <List.Item.Brief style={dashBoardStyles.bodyContent}>{item.body}</List.Item.Brief>
-                            <Button style={dashBoardStyles.buttonBorder} onPress={() => navigatetoDashBoardDetail(index)}>
-                                <List.Item.Brief style={dashBoardStyles.readMore}>{constant.readMore}</List.Item.Brief>
-                            </Button>
-                        </List.Item>
-                            
-                    </>
-                ))}           
-             </List>
-        </ScrollView>
+    <SafeAreaView style={dashBoardStyles.container}>
+      <FlatList
+        data={userList}
+        renderItem={(item) => renderItem(item)}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
     );
 }
 export default Dashboard;

@@ -1,41 +1,82 @@
-import React, { useEffect, useContext, useState } from "react";
+/* Blogs Screen */
+
+import React, { useContext, useEffect } from "react";
 import APIContext from "../../networking/context/apiContext";
-import { List } from '@ant-design/react-native'
-import blogStyles from '../../styles/blogStyles';
-import { Image, ScrollView } from 'react-native';
+import dashBoardStyles from '../../styles/dashboardStyles';
+import { Image, View, SafeAreaView, FlatList, TouchableOpacity, Text } from 'react-native'
+import constant from '../../constants/constants';
+
+/* Cretae a interface for ItemData with data type */
+
+type ItemData = {
+    id: string;
+    userId: string;
+    title: string;
+    body: string;
+};
+
+/* Cretae a Props for item to declare action in onPress */
+
+type ItemProps = {
+    item: ItemData;
+    onPress: () => void;
+};
+
+/* Created Render Item for list item */
+
+const Item = ({ item, onPress }: ItemProps) => (
+    <TouchableOpacity onPress={onPress}>
+        <View style={dashBoardStyles.innerContainer}>
+            <View style={dashBoardStyles.innerView}>
+                <Image
+                    style={dashBoardStyles.thumbnail}
+                    source={require('../../images/business.jpg')}
+                />
+            </View>
+            <View style={dashBoardStyles.content}>
+                <Text style={[dashBoardStyles.title]}>{item.title}</Text>
+                <Text style={[dashBoardStyles.bodyContent]}>{item.body}</Text>
+                <Text style={[dashBoardStyles.readMore]}>{constant.readMore}</Text>
+            </View>
+        </View>
+    </TouchableOpacity>
+);
+
+/* create blogs screen with props */
 
 const Blogs = (props: any) => {
-    const { userBlogList, fetchBlogDetails } = useContext(APIContext);
-      useEffect(() => {
-        fetchBlogDetails();
-      }, []);
+    const { userList, fetchDashboardList } = useContext(APIContext);
 
+    /* call restful api in useeffect yo show the blog list */
+
+    useEffect(() => {
+        fetchDashboardList();
+    }, []);
+
+    /* Navigation to blogDetails if need to add blog details screen in future */
+
+    const navigatetoBlogDetail = (item: any) => {
+
+    }
+
+    const renderItem = ({ item }: { item: any }) => {
+        return (
+            <Item
+                item={item}
+                onPress={() => navigatetoBlogDetail(item)}
+            />
+        );
+    };
+
+    /* create a flat list to show the list of item with safearea */
     return (
-        <ScrollView
-            style={blogStyles.container}
-            automaticallyAdjustContentInsets={false}
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}>
-            <List>
-                {userBlogList.map((item: any, index: number) => (
-                    <>
-                        <List.Item
-                            extra={
-                                <Image
-                                    source={{
-                                        uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-                                    }}
-                                    style={blogStyles.thumbnail}
-                                />
-                            }>
-                            <List.Item.Brief style={blogStyles.title}>{item.title}</List.Item.Brief>
-                            <List.Item.Brief style={blogStyles.bodyContent}>{item.body}</List.Item.Brief>
-                        </List.Item>
-                            
-                    </>
-                ))}           
-             </List>
-        </ScrollView>
+        <SafeAreaView style={dashBoardStyles.container}>
+            <FlatList
+                data={userList}
+                renderItem={(item) => renderItem(item)}
+                keyExtractor={item => item.id}
+            />
+        </SafeAreaView>
     );
 }
 export default Blogs;
