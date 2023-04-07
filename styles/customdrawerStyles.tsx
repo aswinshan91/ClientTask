@@ -22,9 +22,9 @@ const customDrawerStyles = StyleSheet.create({
       marginBottom: 10,
     },
     nametitle: {
-      marginTop: 5,
+      marginTop: 10,
       textAlign: 'center',
-      fontSize: 10,
+      fontSize: 12,
     },
     logo: {
       alignSelf: 'flex-start',
@@ -46,8 +46,8 @@ const customDrawerStyles = StyleSheet.create({
       flexDirection: 'column',
       marginTop: 10,
       left: '30%',
-      width: 90,
-      height: 90,
+      width: 100,
+      height: 100,
     },
   });
   export default customDrawerStyles;
