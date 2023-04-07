@@ -1,27 +1,37 @@
 
 import React, { createContext, useState, useEffect } from "react";
 import https from '../https';
-import { Alert } from 'react-native';
-
 const APIContext = createContext();
 
 export const APIProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState([]);
   const [userList, setUserList] = useState([]);
+  const [userBlogList, setUserBlogList] = useState([]);
+
 
   useEffect(() => {
     fetchDashboard();
   }, []);
 
-  //   const fetchDashBoardDetails = () => {
-  //     axios.get("https://jsonplaceholder.typicode.com/users/1")
-  //         .then(response => {
-  //             setTodos(response.data);
-  //         })
-  //         .catch(error => {
-  //             console.log(error);
-  //         });
-  // }
+  const fetchDashboardList = () => {
+    https.get(`users/1/posts`)
+      .then(response => {
+        setUserList(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+}
+
+    const fetchBlogDetails = () => {
+      https.get(`users/2/posts`)
+        .then(response => {
+          setUserBlogList(response.data);
+        })
+        .catch(error => {
+          console.error('There was an error!', error);
+        });
+  }
 
   const fetchDashboard = async () => {
     const userApiUrl = https.get(`users/1`)
@@ -31,15 +41,7 @@ export const APIProvider = ({ children }) => {
       .catch(error => {
         console.log(error);
       });
-    const userListApiUrl = https.get(`users/1/posts`)
-      .then(response => {
-        setUserList(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    Promise.all([userApiUrl, userListApiUrl]).then(function (response) {
+    Promise.all([userApiUrl]).then(function (response) {
       return response
     }).catch(function (err) {
       console.log(err);
@@ -55,7 +57,9 @@ export const APIProvider = ({ children }) => {
     };
     https.put(`posts/${detail.userId}`, article)
       .then(response => {
-        Alert.alert('Content Updated Successfully. Go back to main menu and revisit to check the updated content.');
+        if (response) {
+          fetchDashboardList();
+        }
        })
       .catch(error => {
         console.error('There was an error!', error);
@@ -67,7 +71,10 @@ export const APIProvider = ({ children }) => {
       value={{
         userDetails,
         userList,
+        userBlogList,
         updateContentDetail,
+        fetchBlogDetails,
+        fetchDashboardList,
       }}
     >
       {children}
