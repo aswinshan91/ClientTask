@@ -25,7 +25,11 @@ const dashBoardStyles = StyleSheet.create({
       container: {
          flex: 1, 
          backgroundColor: '#f5f5f9',
-      }
+      },
+      thumbnail: { 
+         width: 75,
+         height: 75,
+      },
   });
 
 export default dashBoardStyles;
