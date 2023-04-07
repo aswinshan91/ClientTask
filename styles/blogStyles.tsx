@@ -13,6 +13,10 @@ const blogStyles = StyleSheet.create({
     bodyContent: {
         fontSize: 12,
     },
+    container: {
+        flex: 1, 
+        backgroundColor: '#f5f5f9',
+    },
     buttonBorder: {
         alignContent: 'flex-start',
         paddingLeft: 0,
