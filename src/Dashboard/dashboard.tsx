@@ -6,7 +6,12 @@ import { Image, ScrollView } from 'react-native'
 import constant from '../../constants/constants';
 
 const Dashboard = (props : any) => {
-    const { userList } = useContext(APIContext);
+    const { userList, fetchDashboardList } = useContext(APIContext);
+
+    useEffect(() => {
+        fetchDashboardList();
+      }, []);
+    
     const navigatetoDashBoardDetail = (index : any) => {
         props.navigation.navigate('DashBoardDetails', {
             body: userList[index].body,
