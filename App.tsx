@@ -1,3 +1,4 @@
+/* Root Component for added Context and Navigation Set up */
 
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
