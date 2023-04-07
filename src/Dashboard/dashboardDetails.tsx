@@ -21,6 +21,9 @@ const DashBoardDetails = (props : any) => {
             userId: detail.userId,
             id: detail.userId,
             title: detail.title,
+        }).then(() => {
+            const { navigation } = props;
+            navigation.goBack();
         });
     }
 
