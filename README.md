@@ -1,7 +1,6 @@
-# ClientTask£ new-repository
-# new-repository
+# ClientTask
 
-implemented React with typescript.
+Implemented React with typescript.
 
 **Stories Covered in Project: **
 
@@ -21,45 +20,49 @@ implemented React with typescript.
 
 **Implemented Features:**
 
-1. ENV - Environment Variable
+1. .env
 
-2. Make text should be constant
+2. Strings referred from Constant File.
 
-3. using Axios to fetch the RESTFUL Api details.
+3. Using Axios to fetch the RESTFUL Api details.
 
-4. Added Ant Design
+4. Used Ant Design in React Native Components
 
-5. Added Random and Static Images for UI
+5. API based random and static Images used in project UI
 
-6. Accordion for Expand and Collapse the side bar for options.
+6. Accordion Component used for side bar which allows expand and collapse the list.
 
-7. Tabs used for show all, latest, archieved Content in Blogs.
+7. Tab Component used for show all, latest, archieved content in Blogs Section.
 
-8. List the items in Dashboard Screen.
+8. Unit test demonstrated in dashboard.
 
-9. Drawer Navigation and Stack Navigation added.
+9. List Component for display the items in Dashboard Screen.
 
-10. Exception Handling.
+10. Drawer Navigation and Stack Navigation implemented.
 
-11. Stylesheet for pages
+11. Exception Handling provided.
 
-12. Comments Updated in each function.
+12. Seperate stylesheet for UI styles.
+
+13. Extensively commented the code.
+
+Throught Process: 
+
+The project target was to demonstrate as many features as possible rather than to exactly replicate the reference UI screen provided.
 
 **Instruction:**
 
-After clone the Project -  
+After clone from git repo -  
 
-Need to install node modules using **yarn install**
+Install the node modules using **yarn install**
 
-then move to ios folder to install pod -** Pod install**
+then move to ios folder to install pod -** pod install**
 
-to run the application using - **yarn start**.
+to run the application in iOS and android use - **yarn start**.
 
 **UI Screenshot:**
 
-
 ![Simulator Screenshot - iPhone 8 - 2023-04-08 at 20 50 06](https://user-images.githubusercontent.com/130089402/230732673-7be3e85a-d8ec-4e2d-bcba-0b92cf4ee54c.png)
-
 
 ![Simulator Screenshot - iPhone 8 - 2023-04-08 at 22 08 10](https://user-images.githubusercontent.com/130089402/230732726-2a0f7062-fbe8-4fc4-9a5f-1b565ac7ce23.png)
 
