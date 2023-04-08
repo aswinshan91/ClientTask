@@ -5,7 +5,7 @@ import {
   ScrollView,
   View,
 } from 'react-native';
-import AccordionList from './AccordionExample';
+import AccordionList from './accordionList';
 import APIContext from "../../networking/context/apiContext";
 import customDrawerStyles from '../../styles/customdrawerStyles';
 import constant from '../../constants/constants';

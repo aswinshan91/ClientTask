@@ -30,13 +30,13 @@ const Item = ({ item, onPress }: ItemProps) => (
             <View style={dashBoardStyles.innerView}>
                 <Image
                     style={dashBoardStyles.thumbnail}
-                    source={require('../../images/business.jpg')}
+                    // source={require('../../images/business.jpg')}
+                    source={{uri: "https://picsum.photos/id/168/1920/1280"}}
                 />
             </View>
             <View style={dashBoardStyles.content}>
                 <Text style={[dashBoardStyles.title]}>{item.title}</Text>
                 <Text style={[dashBoardStyles.bodyContent]}>{item.body}</Text>
-                <Text style={[dashBoardStyles.readMore]}>{constant.readMore}</Text>
             </View>
         </View>
     </TouchableOpacity>

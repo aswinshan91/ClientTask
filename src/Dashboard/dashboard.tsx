@@ -25,21 +25,28 @@ type ItemProps = {
 /* Created Render Item for list item */
 
 const Item = ({ item, onPress }: ItemProps) => (
-    <TouchableOpacity onPress={onPress}>
-        <View style={dashBoardStyles.innerContainer}>
-            <View style={dashBoardStyles.innerView}>
-            <Image
-            style={dashBoardStyles.thumbnail}
-            source={require('../../images/meeting.jpg')}
+  <TouchableOpacity onPress={onPress}>
+    <View style={dashBoardStyles.innerContainer}>
+      <View style={dashBoardStyles.innerView}>
+        <Image
+          style={dashBoardStyles.thumbnail}
+          source={{ uri: 'https://picsum.photos/800/800' }}
         />
-            </View>
-            <View style={dashBoardStyles.content}>
-              <Text style={[dashBoardStyles.title]}>{item.title}</Text>
-              <Text style={[dashBoardStyles.bodyContent]}>{item.body}</Text>
-              <Text style={[dashBoardStyles.readMore]}>{constant.readMore}</Text>
-            </View>
-        </View>
-    </TouchableOpacity>
+      </View>
+      <View style={dashBoardStyles.content}>
+        <Text style={[dashBoardStyles.title]}>{item.title}</Text>
+        <Text style={[dashBoardStyles.bodyContent]}>{item.body}</Text>
+        <Text style={[dashBoardStyles.readMore]}>{constant.readMore}</Text>
+      </View>
+    </View>
+    <View
+      style={{
+        borderWidth: 0.3,
+        backgroundColor: 'lightgrey',
+        marginVertical: 10,
+      }}
+    />
+  </TouchableOpacity>
 );
 
 /* create DashBoard screen with props */
