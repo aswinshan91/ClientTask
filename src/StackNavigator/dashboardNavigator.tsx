@@ -2,7 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Dashboard from '../Dashboard/dashboard';
 import DashBoardDetails from '../Dashboard/dashboardDetails';
-import DashBoardUnitTesting from '../Dashboard/dashboardunitTest';
+import DashBoardTesting from '../Dashboard/dashboardTest';
 
 export default function Root() {
     const Stack = createNativeStackNavigator();
@@ -12,7 +12,7 @@ export default function Root() {
                 {props => <Dashboard {...props} />}
             </Stack.Screen>
             <Stack.Screen name="DashBoardDetails" component={DashBoardDetails}></Stack.Screen>
-            <Stack.Screen name="DashBoardunitTest" component={DashBoardUnitTesting}></Stack.Screen>
+            <Stack.Screen name="DashBoardTest" component={DashBoardTesting}></Stack.Screen>
         </Stack.Navigator>
     );
 }

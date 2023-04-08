@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Blogs from '../Blogs/blog';
+import Blogs from '../Blogs/blogtabs';
 
 export default function Root() {
     const Stack = createNativeStackNavigator();

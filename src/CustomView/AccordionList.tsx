@@ -4,7 +4,7 @@ import { Accordion, List } from '@ant-design/react-native'
 import accordionStyles from '../../styles/accordionStyles';
 import constant from '../../constants/constants';
 
-const AccordionList = (props: any) => {
+const AccordionMenu = (props: any) => {
   const [activeSections, setActiveSections] = useState([0, 0]);
 
   const onChange = (activeSections: number[]) => {
@@ -131,4 +131,4 @@ const AccordionList = (props: any) => {
   )
   }
 
-export default AccordionList;
+export default AccordionMenu;

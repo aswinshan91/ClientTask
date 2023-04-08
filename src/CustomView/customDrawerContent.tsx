@@ -4,8 +4,9 @@ import {
   Image,
   ScrollView,
   View,
+  SafeAreaView
 } from 'react-native';
-import AccordionList from './accordionList';
+import AccordionMenu from './AccordionList';
 import APIContext from "../../networking/context/apiContext";
 import customDrawerStyles from '../../styles/customdrawerStyles';
 import constant from '../../constants/constants';
@@ -13,12 +14,12 @@ import constant from '../../constants/constants';
 function CustomDrawerContent(props : any) {
   const { userDetails } = useContext(APIContext);
   return (
-    <ScrollView {...props}>
-      <View style={customDrawerStyles.menuContainer}>
+    <ScrollView {...props} scrollEnabled={false}>
+      <SafeAreaView style={customDrawerStyles.menuContainer}>
         <View
           style={[
             customDrawerStyles.menuItemsCard,
-            { backgroundColor: '#fff2df' },
+            { backgroundColor:'#4B7CEE' },
           ]}>
           <Image
             style={customDrawerStyles.logo}
@@ -35,9 +36,9 @@ function CustomDrawerContent(props : any) {
           <Text style={customDrawerStyles.nametitle}>{userDetails ? userDetails.name : constant.guest}</Text>
         </View>
         <View style={customDrawerStyles.accordionHeader}>
-          <AccordionList {...props}/>
+          <AccordionMenu {...props}/>
         </View>
-      </View>
+      </SafeAreaView>
     </ScrollView>
   );
 }

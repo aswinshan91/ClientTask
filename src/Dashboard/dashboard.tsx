@@ -6,7 +6,7 @@ import dashBoardStyles from '../../styles/dashboardStyles';
 import { Image, View, SafeAreaView, FlatList, TouchableOpacity, Text } from 'react-native'
 import constant from '../../constants/constants';
 
-/* Cretae a interface for ItemData with data type */
+/* Create a interface for ItemData with data type */
 
 type ItemData = {
     id: string;
@@ -39,13 +39,6 @@ const Item = ({ item, onPress }: ItemProps) => (
         <Text style={[dashBoardStyles.readMore]}>{constant.readMore}</Text>
       </View>
     </View>
-    <View
-      style={{
-        borderWidth: 0.3,
-        backgroundColor: 'lightgrey',
-        marginVertical: 10,
-      }}
-    />
   </TouchableOpacity>
 );
 
@@ -57,7 +50,7 @@ const Dashboard = (props : any) => {
   /* call restful api in useeffect yo show the DashBoard list */
 
     useEffect(() => {
-        fetchDashboardList();
+        fetchDashboardList('1');
       }, []);
 
 /* Navigation to DashBoard Details with Params */
@@ -81,6 +74,21 @@ const Dashboard = (props : any) => {
         );
       };
 
+/* added seperate border line in Flat list Item */
+
+  const itemSeparatorList = () => {
+    return (
+      // Flat List Item Separator
+      <View
+        style={{
+          height: 0.5,
+          width: '100%',
+          backgroundColor: '#C8C8C8',
+        }}
+      />
+    );
+  };
+
 /* create a flat list to show the list of item with safearea */
 
     return (
@@ -89,6 +97,7 @@ const Dashboard = (props : any) => {
         data={userList}
         renderItem={(item) => renderItem(item)}
         keyExtractor={item => item.id}
+        ItemSeparatorComponent={() => itemSeparatorList()}
       />
     </SafeAreaView>
     );
