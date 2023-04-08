@@ -7,8 +7,6 @@ implemented React with typescript.
 
 1. Created a 2-column layout that has a fixed sidebar (with user details and 2 links e.g., Dashboard and Blogs) and a content section.
 
-Create a simple 2-column layout that has a fixed sidebar (with user details and 2 links e.g., Dashboard and Blogs) and a content section.
-
 2. Make an API call every time the app is loaded and call to fetch the user details and fill the sidebar user section and display the name in profile.
 
 3. Implement 2 routes (Dashboard and Blogs) to change the content in the content section.
