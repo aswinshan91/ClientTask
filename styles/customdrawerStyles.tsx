@@ -15,7 +15,9 @@ const customDrawerStyles = StyleSheet.create({
       marginLeft: 15,
       marginTop: 15,
       textAlign: 'center',
-      fontSize: 15
+      fontSize: 15,
+      color: 'white',
+      fontWeight:'600'
     },
     accordionHeader: {
       marginTop: 10,
@@ -34,7 +36,6 @@ const customDrawerStyles = StyleSheet.create({
       resizeMode:'contain'
     },
     menuContainer: {
-      marginTop: 50,
       flex: 1,
     },
     menuItemsCard: {
