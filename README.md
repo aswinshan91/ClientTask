@@ -2,21 +2,26 @@
 
 Implemented React with typescript.
 
-**Stories Covered in Project: **
+** Stories Covered in Project: **
 
-1. Created a 2-column layout that has a fixed sidebar (with user details and 2 links e.g., Dashboard and Blogs) and a content section.
+1.Problem statement for front end task was for the website page and it has been adopted to a mobile UI with limited screen area
 
-2. Make an API call every time the app is loaded and call to fetch the user details and fill the sidebar user section and display the name in profile.
+2. Created a 2-column layout with Expand and Collapsable drawer (with user details and 2 links e.g., Dashboard and Blogs) and a content section. Drawer has to be collapsable to access the main sections.
 
-3. Implement 2 routes (Dashboard and Blogs) to change the content in the content section.
+3. Make an API call every time the app is loaded and call to fetch the user details and fill the sidebar user section and display the name in profile.
 
-4. On Blogs page, fetch posts data and display a list with the segment of All, Latest and Archieved.
+4. Implement 2 routes (Dashboard and Blogs) to change the content in the content section.
 
-5. in Details Screen, Bydefault edit for content is disable, if you want edit the content and update, click edit action and edit the content and submit for updated the text.
+5. On Blogs page, fetch posts data and display a list with the segment of All, Latest and Archieved.
 
-6. Clicking Edit should load that item in a form and saving after changing any text should make a PUT API call with the updated payload.
+6. in Details Screen, Bydefault edit for content is disable, if you want edit the content and update, click edit action and edit the content and submit for updated the text.
 
-7. Implement a simple unit test on sidebar to make sure that user detail is fetched. 
+7. Clicking Edit should load that item in a form and saving after changing any text should make a PUT API call with the updated payload. 
+Details edit only enable after click edit button below the textbox.
+
+8. After edit the content, when click submit action to call the post api for content update and navigate back to reload the dashboard list.
+
+9. Implement a simple unit test on sidebar to make sure that user detail is fetched. 
 
 **Implemented Features:**
 
