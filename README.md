@@ -1,6 +1,6 @@
 # DashBoard & Blog posts
 
-Implemented React with typescript.
+React Native with typescript:
 
 ** Stories Covered in Project: **
 
@@ -14,12 +14,11 @@ Implemented React with typescript.
 
 5. On Blogs page, fetch posts data and display a list with the segment of All, Latest and Archieved.
 
-6. in Dashboard details, Clicking Edit should load that item in a form and saving after changing any text should make a PUT API call with the updated payload. 
-Details edit only enable after click edit button below the textbox.
+6. In DashboardDetails component, on clicking 'Edit' button will result in loading of selected item details in a form. User can edit the content. After editing the information, user may click on 'Submit' button.
+But, clicking on 'Submit' will not save updated data as we do not any Update or PUT API for the edited data.
+So, navigation back will result in loading of the old content in dashboard.
 
-7. After edit the content, when click submit action to call the post api for content update and navigate back to reload the dashboard list.
-
-8. Implement a simple unit test on Dashboard UI.
+7. Unit testing is demonstrated by creation of Dashboard unit test. Same can be expanded to include more components in future, if needed.
 
 **Implemented Features:**
 
@@ -48,6 +47,8 @@ Details edit only enable after click edit button below the textbox.
 12. Seperate stylesheet for UI styles.
 
 13. Extensively commented the code.
+
+14. Comments added in Each Function.
 
 Throught Process: 
 
