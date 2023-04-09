@@ -20,6 +20,8 @@ So, navigation back will result in loading of the old content in dashboard.
 
 7. Unit testing is demonstrated by creation of Dashboard unit test. Same can be expanded to include more components in future, if needed.
 
+8. Front end task document talked about creation of Dashboard and Blog for demonstrating navigation. Only that has been created and added to the code from the reference UI provided.
+
 **Implemented Features:**
 
 1. .env
