@@ -103,7 +103,6 @@ export const APIProvider = ({ children }) => {
             Alert.alert(JSON.stringify(constant.noData));
             return;
           }
-          fetchDashboardList();
         }
       })
       .catch(error => {
